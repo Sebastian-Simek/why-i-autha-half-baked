@@ -5,6 +5,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
+    // I don't understand this
 }
 
 export async function signupUser(email, password) {
