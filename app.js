@@ -12,4 +12,9 @@ const signUpPassword = document.getElementById('sign-up-password');
 // Redirect to /other-page on successful auth
 // Redirect to /other-page when page loads if user is authenticated
 
-console.log(signupUser());
+signUpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(signUpForm);
+    console.log({ email: data.get('email'), password: data.get('password') });
+    const user = await signupUser(data.get('email'), data.get('password'));
+});
